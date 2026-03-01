@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企業 AI 課程產品線戰略規劃｜TPIsoftware</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary:          #5B21B6;
+            --primary-light:    #7C3AED;
+            --primary-glow:     #8B5CF6;
+            --primary-pale:     #EDE9FE;
+            --primary-pale2:    #F5F3FF;
+            --accent:           #0EA5E9;
+            --accent-dark:      #0284C7;
+            --secondary:        #475569;
+            --success:          #059669;
+            --success-bg:       #ECFDF5;
+            --success-border:   #A7F3D0;
+            --warning:          #DC2626;
+            --warning-bg:       #FEF2F2;
+            --warning-border:   #FECACA;
+            --info:             #0284C7;
+            --info-bg:          #F0F9FF;
+            --info-border:      #BAE6FD;
+            --dark:             #0F172A;
+            --text-secondary:   #475569;
+            --text-muted:       #94A3B8;
+            --bg-base:          #FFFFFF;
+            --bg-subtle:        #F8FAFC;
+            --bg-muted:         #F1F5F9;
+            --border:           #E2E8F0;
+            --border-strong:    #CBD5E1;
+        }
+
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+            color: var(--dark);
+            background: #FFFFFF;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Header ── */
+        header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 0 40px;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+        }
+        .logo-section { display: flex; align-items: center; gap: 12px; }
+        .logo-section img { height: 38px; max-width: 160px; object-fit: contain; }
+        .header-nav { display: flex; align-items: center; gap: 28px; }
+        .header-nav a {
+            font-size: 14px; color: var(--text-secondary);
+            text-decoration: none; font-weight: 500; transition: color 0.2s;
+        }
+        .header-nav a:hover { color: var(--dark); }
+        .header-nav .nav-cta {
+            background: var(--primary-light); color: white !important;
+            padding: 9px 22px; border-radius: 8px; font-weight: 600; transition: all 0.2s;
+        }
+        .header-nav .nav-cta:hover {
+            background: var(--primary); transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(124,58,237,0.3);
+        }
+        .lang-toggle {
+            background: transparent; border: 1.5px solid var(--primary-light);
+            color: var(--primary-light); padding: 7px 16px; border-radius: 20px;
+            font-size: 13px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;
+            transition: all 0.2s; font-family: inherit;
+        }
+        .lang-toggle:hover { background: var(--primary-light); color: white; }
+
+        /* ── Hero ── */
+        .hero {
+            background: white; padding: 80px 40px 88px;
+            text-align: center; position: relative; overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(91,33,182,0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(91,33,182,0.035) 1px, transparent 1px);
+            background-size: 44px 44px; pointer-events: none;
+        }
+        .hero::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+            height: 1px; background: linear-gradient(90deg, transparent, var(--primary-pale), transparent);
+        }
+        .hero-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--primary-pale); color: var(--primary-light);
+            font-size: 12px; font-weight: 700; letter-spacing: 0.6px;
+            padding: 6px 18px; border-radius: 100px; border: 1px solid #DDD6FE; margin-bottom: 28px;
+        }
+        .hero-badge-dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: var(--primary-light); display: inline-block;
+        }
+        .hero-title {
+            font-size: 52px; font-weight: 800; letter-spacing: -2px; line-height: 1.15;
+            background: linear-gradient(135deg, #3B0764 0%, #7C3AED 45%, #0EA5E9 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; margin-bottom: 18px;
+        }
+        .hero-subtitle {
+            font-size: 17px; color: var(--text-secondary); font-weight: 400;
+            line-height: 1.7; margin-bottom: 40px; letter-spacing: 0.3px; font-style: italic;
+        }
+        .trust-badges { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+        .trust-badge {
+            font-size: 13px; color: var(--text-secondary); font-weight: 500;
+            display: flex; align-items: center; gap: 7px;
+        }
+        .trust-badge::before { content: '✓'; color: var(--primary-light); font-weight: 800; font-size: 14px; }
+
+        /* ── Container / Section ── */
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 32px 16px; }
+        .section {
+            background: white; border-radius: 16px; padding: 40px 48px;
+            margin-bottom: 24px; border: 1px solid var(--border);
+            page-break-inside: avoid; transition: box-shadow 0.25s;
+        }
+        .section:hover { box-shadow: 0 4px 24px rgba(91,33,182,0.06); }
+
+        .section-header {
+            display: flex; align-items: center; gap: 16px;
+            margin-bottom: 24px; padding-bottom: 20px;
+            border-bottom: 1px solid var(--border); page-break-after: avoid;
+        }
+        .section-tag {
+            font-size: 11px; font-weight: 700; letter-spacing: 1.2px;
+            text-transform: uppercase; color: var(--primary-light);
+            background: var(--primary-pale); padding: 4px 13px; border-radius: 100px;
+            white-space: nowrap; flex-shrink: 0; border: 1px solid #DDD6FE;
+        }
+        .section-title {
+            font-size: 23px; color: var(--dark); font-weight: 700;
+            letter-spacing: -0.3px; position: relative; padding-left: 16px;
+        }
+        .section-title::before {
+            content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+            width: 4px; height: 75%; background: linear-gradient(180deg, var(--primary-light), var(--accent));
+            border-radius: 2px;
+        }
+
+        /* ── Question Box ── */
+        .question-box {
+            background: var(--primary-pale2); border: 1px solid #DDD6FE;
+            padding: 16px 20px; border-radius: 12px; margin-bottom: 20px;
+            display: flex; align-items: center; gap: 14px; page-break-inside: avoid;
+        }
+        .question-icon { font-size: 26px; flex-shrink: 0; line-height: 1; }
+        .question-text { font-size: 16px; color: var(--dark); font-weight: 600; line-height: 1.5; }
+
+        /* ── Typography ── */
+        h3 { font-size: 17px; color: var(--dark); margin: 22px 0 12px; font-weight: 700; letter-spacing: -0.2px; }
+        h4 { font-size: 15px; color: var(--text-secondary); margin: 16px 0 10px; font-weight: 600; }
+
+        /* ── Bullet List ── */
+        .bullet-list { list-style: none; padding-left: 0; }
+        .bullet-list li { padding: 7px 0 7px 22px; position: relative; font-size: 15px; line-height: 1.6; }
+        .bullet-list li::before {
+            content: ''; width: 6px; height: 6px; border-radius: 50%;
+            background: var(--primary-light); position: absolute; left: 4px; top: 14px;
+        }
+
+        /* ── Numbered Steps ── */
+        .numbered-steps { counter-reset: step-counter; list-style: none; padding-left: 0; }
+        .numbered-steps li {
+            counter-increment: step-counter; padding: 8px 0 8px 40px;
+            position: relative; font-size: 15px; line-height: 1.6;
+        }
+        .numbered-steps li::before {
+            content: counter(step-counter); background: var(--primary-light); color: white;
+            width: 26px; height: 26px; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center; position: absolute;
+            left: 0; font-weight: 700; top: 9px; font-size: 12px; font-family: 'Inter', sans-serif;
+        }
+
+        /* ── Cards ── */
+        .card {
+            background: white; border: 1px solid var(--border); border-radius: 12px;
+            padding: 18px 22px; margin: 16px 0; page-break-inside: avoid; transition: box-shadow 0.2s;
+        }
+        .card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+        .card-emphasis { border-top: 3px solid var(--primary-light); background: var(--primary-pale2); border-color: #DDD6FE; border-top-color: var(--primary-light); }
+        .card-success   { border-top: 3px solid var(--success); background: var(--success-bg); border-color: var(--success-border); border-top-color: var(--success); }
+        .card-warning   { border-top: 3px solid var(--warning); background: var(--warning-bg); border-color: var(--warning-border); border-top-color: var(--warning); }
+        .card-info      { border-top: 3px solid var(--info); background: var(--info-bg); border-color: var(--info-border); border-top-color: var(--info); }
+        .card-title { font-size: 15px; font-weight: 700; margin-bottom: 10px; color: var(--dark); }
+
+        /* ── Table ── */
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); font-size: 14px; }
+        table th { background: #1E293B; color: white; padding: 13px 16px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.3px; }
+        table td { padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 14px; line-height: 1.5; }
+        table tr:last-child td { border-bottom: none; }
+        table tr:nth-child(even) td { background: var(--bg-subtle); }
+        table tr:hover td { background: var(--primary-pale); transition: background 0.15s; }
+
+        /* ── Grids ── */
+        .two-column   { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+        .three-column { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 16px 0; }
+        .four-column  { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 14px; margin: 16px 0; }
+
+        /* ── Flow Diagram ── */
+        .flow-diagram {
+            display: flex; align-items: center; justify-content: center;
+            gap: 10px; margin: 20px 0; padding: 20px 24px;
+            background: var(--bg-subtle); border: 1px solid var(--border);
+            border-radius: 12px; page-break-inside: avoid;
+        }
+        .flow-box {
+            background: white; padding: 14px 20px; border-radius: 10px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06); font-weight: 600;
+            color: var(--primary-light); text-align: center; flex: 1;
+            border: 1.5px solid #DDD6FE; font-size: 14px; line-height: 1.4; transition: box-shadow 0.2s;
+        }
+        .flow-arrow { font-size: 18px; color: var(--text-muted); flex-shrink: 0; font-weight: 300; }
+
+        /* ── Timeline ── */
+        .timeline { background: var(--bg-subtle); border: 1px solid var(--border); padding: 20px; border-radius: 12px; margin: 16px 0; }
+        .timeline-item {
+            background: white; padding: 16px 20px; margin: 12px 0;
+            border-left: 3px solid var(--primary-light); border-radius: 10px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+        .timeline-item h4 { margin-top: 0; color: var(--primary-light); margin-bottom: 8px; font-size: 15px; font-weight: 700; }
+        .timeline-item p  { font-size: 14px; line-height: 1.6; margin: 0; color: var(--text-secondary); }
+
+        /* ── Highlight Text ── */
+        .highlight-text { background: var(--primary-pale); padding: 2px 8px; border-radius: 5px; font-weight: 700; color: var(--primary-light); }
+
+        /* ── Key Point ── */
+        .key-point {
+            background: linear-gradient(135deg, var(--primary) 0%, #4338CA 100%);
+            color: white; padding: 16px 24px; border-radius: 12px; margin: 20px 0;
+            font-size: 16px; font-weight: 600; text-align: center;
+            box-shadow: 0 4px 24px rgba(91,33,182,0.22); page-break-inside: avoid; line-height: 1.6;
+        }
+
+        /* ── Before / After ── */
+        .ba-wrapper { display: grid; grid-template-columns: 1fr 48px 1fr; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); margin: 20px 0; }
+        .ba-col { padding: 24px 26px; display: flex; flex-direction: column; gap: 16px; }
+        .ba-before { background: #FEF2F2; }
+        .ba-after  { background: #ECFDF5; }
+        .ba-label  { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px; }
+        .ba-before .ba-label { color: #DC2626; }
+        .ba-after  .ba-label { color: #059669; }
+        .ba-icon { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0; }
+        .ba-before .ba-icon { background: #FEE2E2; color: #DC2626; }
+        .ba-after  .ba-icon { background: #D1FAE5; color: #059669; }
+        .ba-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+        .ba-list li { font-size: 14px; line-height: 1.5; padding-left: 16px; position: relative; }
+        .ba-list li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; position: absolute; left: 3px; top: 8px; }
+        .ba-before .ba-list li::before { background: #FCA5A5; }
+        .ba-after  .ba-list li::before { background: #6EE7B7; }
+        .ba-divider { background: white; border-left: 1px solid var(--border); border-right: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--text-muted); }
+
+        /* ── Stats Grid ── */
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0; }
+        .stat-item { background: white; border: 1.5px solid var(--border); border-radius: 12px; padding: 18px 10px 16px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); position: relative; overflow: hidden; }
+        .stat-item::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--primary-light), var(--accent)); }
+        .stat-number { font-size: 32px; font-weight: 900; color: var(--primary-light); line-height: 1.1; margin-bottom: 8px; letter-spacing: -1px; }
+        .stat-label  { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+
+        /* ── Pyramid Tiers ── */
+        .tier-wrapper { display: flex; flex-direction: column; gap: 8px; margin: 20px 0; }
+        .tier-box {
+            padding: 16px 24px; border-radius: 12px; font-weight: 700;
+            display: flex; align-items: center; justify-content: space-between;
+            border: 1.5px solid;
+        }
+        .tier-box .tier-label { font-size: 15px; }
+        .tier-box .tier-badge { font-size: 11px; font-weight: 700; letter-spacing: 0.8px; padding: 3px 12px; border-radius: 100px; }
+        .tier-l1 { background: #FEF2F2; border-color: #FECACA; color: #DC2626; }
+        .tier-l1 .tier-badge { background: #FEE2E2; color: #DC2626; }
+        .tier-l2 { background: #F0F9FF; border-color: #BAE6FD; color: #0284C7; }
+        .tier-l2 .tier-badge { background: #E0F2FE; color: #0284C7; }
+        .tier-l3 { background: var(--primary-pale2); border-color: #DDD6FE; color: var(--primary-light); }
+        .tier-l3 .tier-badge { background: var(--primary-pale); color: var(--primary-light); }
+
+        /* ── Matrix Grid ── */
+        .matrix-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+        .matrix-cell { padding: 20px 22px; border-radius: 12px; border: 1.5px solid; }
+        .matrix-cell .cell-icon { font-size: 28px; margin-bottom: 10px; }
+        .matrix-cell .cell-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+        .matrix-cell .cell-desc  { font-size: 13px; line-height: 1.6; }
+        .matrix-expand   { background: var(--success-bg); border-color: var(--success-border); color: #065F46; }
+        .matrix-govern   { background: var(--warning-bg); border-color: var(--warning-border); color: #991B1B; }
+        .matrix-noturgent{ background: var(--bg-subtle);  border-color: var(--border);          color: var(--text-secondary); }
+        .matrix-human    { background: var(--primary-pale2); border-color: #DDD6FE; color: var(--primary); }
+
+        /* ── CTA ── */
+        .cta-section {
+            background: linear-gradient(135deg, #3B0764 0%, #1E1B4B 55%, #0C4A6E 100%);
+            padding: 88px 40px; text-align: center; color: white; position: relative; overflow: hidden; margin-top: 12px;
+        }
+        .cta-section::before {
+            content: ''; position: absolute; inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 44px 44px; pointer-events: none;
+        }
+        .cta-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+        .cta-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #A78BFA; margin-bottom: 16px; }
+        .cta-title   { font-size: 38px; font-weight: 800; line-height: 1.3; letter-spacing: -0.8px; margin-bottom: 16px; }
+        .cta-desc    { font-size: 16px; color: #C4B5FD; margin-bottom: 40px; line-height: 1.7; }
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn-cta-primary {
+            background: white; color: var(--primary); padding: 14px 36px; border-radius: 10px;
+            font-weight: 700; font-size: 15px; text-decoration: none; display: inline-block;
+            transition: all 0.2s;
+        }
+        .btn-cta-primary:hover { background: #F5F3FF; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.22); }
+        .btn-cta-secondary {
+            background: transparent; color: white; padding: 14px 36px; border-radius: 10px;
+            font-weight: 600; font-size: 15px; text-decoration: none; display: inline-block;
+            border: 1.5px solid rgba(255,255,255,0.3); transition: all 0.2s;
+        }
+        .btn-cta-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.55); }
+
+        /* ── Footer ── */
+        footer { background: #0F172A; color: white; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; padding: 52px 40px 36px; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; align-items: start; }
+        .footer-brand-name { font-size: 20px; font-weight: 800; color: white; letter-spacing: -0.4px; margin-bottom: 8px; }
+        .footer-tagline    { font-style: italic; color: #94A3B8; font-size: 13px; margin-bottom: 16px; line-height: 1.6; }
+        .footer-desc       { font-size: 13px; color: #475569; line-height: 1.8; }
+        .footer-col-title  { font-size: 12px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #64748B; margin-bottom: 16px; }
+        .footer-links      { display: flex; flex-direction: column; gap: 10px; }
+        .footer-link       { color: #94A3B8; text-decoration: none; font-size: 13px; transition: color 0.2s; }
+        .footer-link:hover { color: white; }
+        .footer-bottom     { border-top: 1px solid #1E293B; padding: 20px 40px; text-align: center; }
+        .footer-bottom p   { font-size: 12px; color: #334155; margin: 0; }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            header { padding: 0 20px; }
+            .header-nav a:not(.nav-cta) { display: none; }
+            .hero { padding: 52px 24px 60px; }
+            .hero-title { font-size: 34px; letter-spacing: -1px; }
+            .container { padding: 24px 16px 12px; }
+            .section { padding: 28px 22px; }
+            .two-column, .three-column, .four-column, .matrix-grid { grid-template-columns: 1fr; }
+            .tier-box { flex-direction: column; gap: 8px; align-items: flex-start; }
+            .ba-wrapper { grid-template-columns: 1fr; }
+            .ba-divider { padding: 12px; border-left: none; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+            .footer-inner { grid-template-columns: 1fr; gap: 32px; padding: 40px 24px 28px; }
+            .cta-section { padding: 60px 24px; }
+            .cta-title { font-size: 28px; }
+            .stats-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── Navbar ── -->
+<header>
+    <div class="logo-section">
+        <img id="logo-zh" src="images/logo-zh.png" alt="昕力資訊" style="height:40px;">
+        <img id="logo-en" src="images/logo-en.png" alt="TPIsoftware" style="height:40px; display:none;">
+    </div>
+    <nav class="header-nav">
+        <button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language">EN</button>
+        <a href="https://www.tpisoftware.com/contact" target="_blank" class="nav-cta">聯絡我們</a>
+    </nav>
+</header>
+
+<!-- ── Hero ── -->
+<div class="hero">
+    <div class="hero-inner">
+        <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            TPIsoftware × 企業 AI 轉型
+        </div>
+        <h1 class="hero-title">企業 AI 課程<br>產品線戰略規劃</h1>
+        <p class="hero-subtitle">From Tool Training to Strategic Transformation Capability</p>
+        <div class="trust-badges">
+            <span class="trust-badge">10 年轉型實務</span>
+            <span class="trust-badge">AI 導入戰略</span>
+            <span class="trust-badge">組織轉型顧問</span>
+        </div>
+    </div>
+</div>
+
+<!-- ── Content ── -->
+<div class="container">
+
+    <!-- P1：市場現況 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">市場現況</span>
+            <h2 class="section-title">AI 課程爆炸成長，但方向錯了</h2>
+        </div>
+        <div class="question-box">
+            <div class="question-icon">💭</div>
+            <div class="question-text">「市場上 AI 課這麼多，我們怎麼定位？」</div>
+        </div>
+        <ul class="bullet-list">
+            <li>工具教學課程大量出現</li>
+            <li>Prompt / Copilot / Excel 自動化高度同質化</li>
+            <li>多數平台已進入價格競爭</li>
+        </ul>
+        <div class="key-point">現在市場上不是缺 AI 課，而是過剩 AI 工具課。</div>
+    </div>
+
+    <!-- P2：市場分層 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">市場分析</span>
+            <h2 class="section-title">市場供給分層：紅海 vs 藍海</h2>
+        </div>
+        <div class="question-box">
+            <div class="question-icon">💭</div>
+            <div class="question-text">「我們應該往哪個層次走？」</div>
+        </div>
+        <h3>三層市場金字塔：</h3>
+        <div class="tier-wrapper">
+            <div class="tier-box tier-l3">
+                <div>
+                    <div class="tier-label">L3｜AI 導入戰略顧問</div>
+                    <div style="font-size:13px; font-weight:400; margin-top:4px; color: var(--primary);">決策框架 × 組織轉型 × 治理設計</div>
+                </div>
+                <span class="tier-badge">🔵 藍海・幾乎空白</span>
+            </div>
+            <div class="tier-box tier-l2">
+                <div>
+                    <div class="tier-label">L2｜部門應用實務課</div>
+                    <div style="font-size:13px; font-weight:400; margin-top:4px;">HR / 業務 / 行銷 / 主管</div>
+                </div>
+                <span class="tier-badge">📈 成長中</span>
+            </div>
+            <div class="tier-box tier-l1">
+                <div>
+                    <div class="tier-label">L1｜工具操作教學</div>
+                    <div style="font-size:13px; font-weight:400; margin-top:4px;">Prompt / Copilot / Excel AI</div>
+                </div>
+                <span class="tier-badge">🔴 紅海競爭</span>
+            </div>
+        </div>
+        <div class="key-point">市場競爭集中在最底層。進入同一層，只能打價格戰。</div>
+    </div>
+
+    <!-- P3：工具課商業特性 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">商業特性</span>
+            <h2 class="section-title">工具課的商業侷限</h2>
+        </div>
+        <div class="ba-wrapper">
+            <div class="ba-col ba-before">
+                <div class="ba-label"><span class="ba-icon">✕</span> 工具教學課</div>
+                <ul class="ba-list">
+                    <li>定價 $2,000–$5,000</li>
+                    <li>可替代性極高</li>
+                    <li>難以延伸顧問服務</li>
+                    <li>無法建立公司差異化</li>
+                </ul>
+            </div>
+            <div class="ba-divider">→</div>
+            <div class="ba-col ba-after">
+                <div class="ba-label"><span class="ba-icon">✓</span> 導入戰略產品</div>
+                <ul class="ba-list">
+                    <li>定價 $80,000–$200,000+</li>
+                    <li>高專業門檻，難以複製</li>
+                    <li>天然延伸長期顧問合作</li>
+                    <li>建立獨特企業 IP</li>
+                </ul>
+            </div>
+        </div>
+        <div class="key-point">工具課可以做，但很難形成公司的長期戰略優勢。</div>
+    </div>
+
+    <!-- P4：企業真實痛點 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">企業痛點</span>
+            <h2 class="section-title">企業高層真正在意的不是工具</h2>
+        </div>
+        <div class="question-box">
+            <div class="question-icon">💭</div>
+            <div class="question-text">「企業 C-Level 的焦慮是什麼？」</div>
+        </div>
+        <h3>高層真實焦慮：</h3>
+        <div class="three-column">
+            <div class="card card-warning">
+                <div class="card-title">💰 投資決策</div>
+                <p>AI 到底要投資多少？ROI 怎麼算？</p>
+            </div>
+            <div class="card card-warning">
+                <div class="card-title">⚠️ 風險管理</div>
+                <p>怎麼避免資料外洩與合規風險？</p>
+            </div>
+            <div class="card card-warning">
+                <div class="card-title">🧠 決策邊界</div>
+                <p>哪些決策永遠不能交給 AI？</p>
+            </div>
+            <div class="card card-info">
+                <div class="card-title">📊 績效重設</div>
+                <p>導入後 KPI 要怎麼重新定義？</p>
+            </div>
+            <div class="card card-info">
+                <div class="card-title">👥 組織影響</div>
+                <p>員工會不會被裁員？士氣怎麼管理？</p>
+            </div>
+            <div class="card card-emphasis">
+                <div class="card-title">🔄 導入路徑</div>
+                <p>從哪裡開始？怎麼確保不是白做工？</p>
+            </div>
+        </div>
+        <div class="key-point">企業已經知道要用 AI，但不知道怎麼「導對」。</div>
+    </div>
+
+    <!-- P5：市場轉折點 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">市場趨勢</span>
+            <h2 class="section-title">市場即將進入第二階段</h2>
+        </div>
+        <div class="question-box">
+            <div class="question-icon">💭</div>
+            <div class="question-text">「我們現在站在哪裡？」</div>
+        </div>
+        <h3>三階段演進：</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h4>第一階段：學工具（已飽和）</h4>
+                <p>大量 AI 工具課、Prompt 課，市場供過於求，價格持續下滑</p>
+            </div>
+            <div class="timeline-item" style="border-left-color: var(--accent);">
+                <h4 style="color: var(--accent);">▶ 第二階段：導入混亂（現在）</h4>
+                <p>企業開始嘗試導入，但缺乏治理框架，失敗案例增加，亟需戰略顧問</p>
+            </div>
+            <div class="timeline-item" style="border-left-color: var(--success);">
+                <h4 style="color: var(--success);">第三階段：制度化與治理（即將到來）</h4>
+                <p>具備完整 AI 治理架構的企業形成競爭壁壘，強者越強</p>
+            </div>
+        </div>
+        <div class="key-point">我們現在站在第一階段到第二階段的轉折點。先布局者，贏得全局。</div>
+    </div>
+
+    <!-- P6：競爭優勢 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">競爭優勢</span>
+            <h2 class="section-title">為什麼是我們</h2>
+        </div>
+        <div class="question-box">
+            <div class="question-icon">💭</div>
+            <div class="question-text">「市場上那麼多顧問，我們的差異在哪？」</div>
+        </div>
+        <div class="two-column">
+            <div>
+                <h3>核心實力：</h3>
+                <ul class="bullet-list">
+                    <li>10 年大型企業轉型實戰經驗</li>
+                    <li>大型軟體產品轉型實務背景</li>
+                    <li>科技導入與組織重設全案經驗</li>
+                    <li>真實成功與失敗案例佐證</li>
+                </ul>
+            </div>
+            <div>
+                <h3>我們不是：</h3>
+                <div class="card card-warning" style="margin-top: 12px;">
+                    <ul style="padding-left:18px; font-size:14px; color: #991B1B;">
+                        <li style="margin-bottom:6px;">❌ AI 工具示範講師</li>
+                        <li style="margin-bottom:6px;">❌ 學術理論派顧問</li>
+                        <li>❌ 只賣課程不交付結果</li>
+                    </ul>
+                </div>
+                <div class="card card-success" style="margin-top: 8px;">
+                    <ul style="padding-left:18px; font-size:14px; color: #065F46;">
+                        <li style="margin-bottom:6px;">✓ 轉型實務者</li>
+                        <li style="margin-bottom:6px;">✓ 交付決策框架</li>
+                        <li>✓ 陪企業從規劃到落地</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="key-point">我們不是 AI 講師，我們是轉型實務者。</div>
+    </div>
+
+    <!-- P7：產品線戰略 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">產品戰略</span>
+            <h2 class="section-title">雙軌產品線戰略</h2>
+        </div>
+        <div class="question-box">
+            <div class="question-icon">💭</div>
+            <div class="question-text">「要放棄工具課，還是繼續做？」</div>
+        </div>
+        <div class="two-column">
+            <div class="card card-info">
+                <div class="card-title">🛠 軌道 A｜工具教學（維持基礎市場）</div>
+                <ul style="padding-left:18px; margin-top:10px; font-size:14px;">
+                    <li style="margin-bottom:6px;">維持市場曝光與流量入口</li>
+                    <li style="margin-bottom:6px;">定價 $2,000–$5,000</li>
+                    <li style="margin-bottom:6px;">廣泛觸及個人學員</li>
+                    <li>作為高端產品的漏斗前端</li>
+                </ul>
+            </div>
+            <div class="card card-emphasis">
+                <div class="card-title">🎯 軌道 B｜導入戰略產品線（建立高端定位）</div>
+                <ul style="padding-left:18px; margin-top:10px; font-size:14px;">
+                    <li style="margin-bottom:6px;">定位 C-Level 決策層</li>
+                    <li style="margin-bottom:6px;">定價 $80,000–$200,000+</li>
+                    <li style="margin-bottom:6px;">可延伸長期顧問合作</li>
+                    <li>建立專屬方法論 IP</li>
+                </ul>
+            </div>
+        </div>
+        <div class="key-point">不是放棄工具課，而是增加高價值層級，形成完整產品矩陣。</div>
+    </div>
+
+    <!-- P8：核心產品1 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">核心產品</span>
+            <h2 class="section-title">核心產品 1：總經理 AI 導入 90 天決策藍圖</h2>
+        </div>
+        <div class="question-box">
+            <div class="question-icon">💭</div>
+            <div class="question-text">「高層要的不是工具，是決策框架。」</div>
+        </div>
+        <div class="three-column">
+            <div class="card card-emphasis">
+                <div class="card-title">🎯 適合對象</div>
+                <ul class="bullet-list" style="margin-top: 8px;">
+                    <li>董事長 / 執行長</li>
+                    <li>總經理 / 副總</li>
+                    <li>事業群主管</li>
+                    <li>數位轉型負責人</li>
+                </ul>
+            </div>
+            <div class="card card-info">
+                <div class="card-title">📐 交付形式</div>
+                <ul class="bullet-list" style="margin-top: 8px;">
+                    <li>2–3 小時閉門分享會</li>
+                    <li>1 天企業內訓工作坊</li>
+                    <li>客製化報告交付</li>
+                </ul>
+            </div>
+            <div class="card card-success">
+                <div class="card-title">✅ 核心成果</div>
+                <ul class="bullet-list" style="margin-top: 8px;">
+                    <li>建立 AI 導入決策框架</li>
+                    <li>識別最高價值應用場景</li>
+                    <li>避免常見百萬導入錯誤</li>
+                </ul>
+            </div>
+        </div>
+        <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 24px;">
+            <div class="stat-item">
+                <div class="stat-number">90</div>
+                <div class="stat-label">天決策藍圖週期</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1天</div>
+                <div class="stat-label">工作坊快速啟動</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3層</div>
+                <div class="stat-label">決策架構深度</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- P9：SGO 模型 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">方法論</span>
+            <h2 class="section-title">AI 組織轉型 3 層模型（SGO）</h2>
+        </div>
+        <div class="question-box">
+            <div class="question-icon">💭</div>
+            <div class="question-text">「企業 AI 轉型應該從哪裡切入？」</div>
+        </div>
+        <div class="flow-diagram" style="flex-direction: column; gap: 8px;">
+            <div class="flow-box" style="width:80%; max-width:420px; padding: 18px 24px; background: linear-gradient(135deg, #3B0764, #7C3AED); color: white; border-color: var(--primary);">
+                <div style="font-size: 12px; font-weight: 700; letter-spacing: 2px; opacity: 0.8; margin-bottom: 4px;">LAYER 1</div>
+                <div style="font-size: 18px; font-weight: 800;">Strategy｜定方向</div>
+                <div style="font-size: 13px; font-weight: 400; opacity: 0.85; margin-top: 4px;">AI 願景、投資優先順序、禁區劃定</div>
+            </div>
+            <div class="flow-arrow" style="transform: rotate(90deg); margin: 4px 0; font-size: 22px;">→</div>
+            <div class="flow-box" style="width:80%; max-width:420px; padding: 18px 24px; background: var(--info-bg); border-color: var(--info-border);">
+                <div style="font-size: 12px; font-weight: 700; letter-spacing: 2px; color: var(--accent-dark); margin-bottom: 4px;">LAYER 2</div>
+                <div style="font-size: 18px; font-weight: 800; color: var(--info);">Governance｜定邊界</div>
+                <div style="font-size: 13px; font-weight: 400; color: var(--text-secondary); margin-top: 4px;">資料政策、合規框架、責任歸屬</div>
+            </div>
+            <div class="flow-arrow" style="transform: rotate(90deg); margin: 4px 0; font-size: 22px;">→</div>
+            <div class="flow-box" style="width:80%; max-width:420px; padding: 18px 24px; background: var(--success-bg); border-color: var(--success-border);">
+                <div style="font-size: 12px; font-weight: 700; letter-spacing: 2px; color: var(--success); margin-bottom: 4px;">LAYER 3</div>
+                <div style="font-size: 18px; font-weight: 800; color: var(--success);">Organization｜改組織</div>
+                <div style="font-size: 13px; font-weight: 400; color: var(--text-secondary); margin-top: 4px;">角色重設、流程再造、KPI 調整</div>
+            </div>
+        </div>
+        <div class="key-point">先定方向，再定邊界，最後改組織。順序錯了，導入必敗。</div>
+    </div>
+
+    <!-- P10：5 階段框架 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">導入框架</span>
+            <h2 class="section-title">企業 AI 導入 5 階段框架</h2>
+        </div>
+        <div class="question-box">
+            <div class="question-icon">💭</div>
+            <div class="question-text">「導入 AI 應該按什麼步驟走？」</div>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h4>① 定方向與禁區</h4>
+                <p>確立 AI 導入願景，明確劃定不可讓渡給 AI 的人類決策邊界</p>
+            </div>
+            <div class="timeline-item">
+                <h4>② 選題與盤點</h4>
+                <p>盤點高頻重複工作，選定最具 ROI 的 Pilot 場景，排列優先順序</p>
+            </div>
+            <div class="timeline-item">
+                <h4>③ Pilot 試行</h4>
+                <p>小規模驗證、快速收集數據、修正方向，降低全面導入風險</p>
+            </div>
+            <div class="timeline-item">
+                <h4>④ 制度化</h4>
+                <p>將 Pilot 成果轉化為可複製的標準流程、政策與訓練體系</p>
+            </div>
+            <div class="timeline-item" style="border-left-color: var(--success);">
+                <h4 style="color: var(--success);">⑤ 擴張與再造</h4>
+                <p>跨部門擴散、持續優化，進入 AI 原生的組織架構再造階段</p>
+            </div>
+        </div>
+        <div class="key-point">導入不是上課，是決策工程與制度建設。</div>
+    </div>
+
+    <!-- P11：AI 影響評估矩陣 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">評估工具</span>
+            <h2 class="section-title">AI 影響評估矩陣</h2>
+        </div>
+        <div class="question-box">
+            <div class="question-icon">💭</div>
+            <div class="question-text">「AI 什麼事可以做？什麼事不能做？」</div>
+        </div>
+        <div class="matrix-grid">
+            <div class="matrix-cell matrix-expand">
+                <div class="cell-icon">🚀</div>
+                <div class="cell-title">可放大</div>
+                <div class="cell-desc">重複性高、規則明確的工作。<br>立即導入，釋放人力。<br>例：報告生成、數據整理</div>
+            </div>
+            <div class="matrix-cell matrix-govern">
+                <div class="cell-icon">🔒</div>
+                <div class="cell-title">需治理</div>
+                <div class="cell-desc">有價值但需要規範與監督。<br>建立政策後再推廣。<br>例：客戶溝通、提案撰寫</div>
+            </div>
+            <div class="matrix-cell matrix-noturgent">
+                <div class="cell-icon">⏳</div>
+                <div class="cell-title">不急做</div>
+                <div class="cell-desc">技術尚不成熟或效益未明。<br>持續觀察，暫緩投入。<br>例：複雜研發決策輔助</div>
+            </div>
+            <div class="matrix-cell matrix-human">
+                <div class="cell-icon">🧑‍💼</div>
+                <div class="cell-title">永遠人類決策</div>
+                <div class="cell-desc">涉及倫理、法律、人際信任。<br>永遠由人主導，AI 僅輔助。<br>例：解僱決策、危機應對</div>
+            </div>
+        </div>
+        <div class="key-point">AI 不該全開，而是要有邊界。知道不做什麼，跟知道做什麼一樣重要。</div>
+    </div>
+
+    <!-- P12：部門主管系列 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">產品線 2</span>
+            <h2 class="section-title">部門主管實務系列</h2>
+        </div>
+        <div class="question-box">
+            <div class="question-icon">💭</div>
+            <div class="question-text">「不同部門主管需要的，差異很大。」</div>
+        </div>
+        <div class="three-column">
+            <div class="card card-info">
+                <div class="card-title">👥 HR 主管</div>
+                <p style="font-size:14px; margin-bottom:12px;">AI 時代的組織重設</p>
+                <ul style="padding-left:18px; font-size:13px; color: var(--text-secondary);">
+                    <li style="margin-bottom:4px;">招募流程 AI 化</li>
+                    <li style="margin-bottom:4px;">職能重設與再培訓</li>
+                    <li>員工影響管理</li>
+                </ul>
+            </div>
+            <div class="card card-info">
+                <div class="card-title">📣 行銷主管</div>
+                <p style="font-size:14px; margin-bottom:12px;">行銷流程重構</p>
+                <ul style="padding-left:18px; font-size:13px; color: var(--text-secondary);">
+                    <li style="margin-bottom:4px;">內容生產效率提升</li>
+                    <li style="margin-bottom:4px;">客戶洞察自動化</li>
+                    <li>品牌一致性治理</li>
+                </ul>
+            </div>
+            <div class="card card-info">
+                <div class="card-title">💼 業務主管</div>
+                <p style="font-size:14px; margin-bottom:12px;">業務效率與 KPI 重設</p>
+                <ul style="padding-left:18px; font-size:13px; color: var(--text-secondary);">
+                    <li style="margin-bottom:4px;">提案與議題分析加速</li>
+                    <li style="margin-bottom:4px;">CRM 智能化應用</li>
+                    <li>業績預測模型建立</li>
+                </ul>
+            </div>
+        </div>
+        <h3>每門課交付的核心四要素：</h3>
+        <div class="two-column">
+            <div class="card card-emphasis">
+                <ul class="bullet-list">
+                    <li><strong>角色重設</strong>：主管的新角色定義</li>
+                    <li><strong>流程重設</strong>：哪些流程可以 AI 化</li>
+                </ul>
+            </div>
+            <div class="card card-emphasis">
+                <ul class="bullet-list">
+                    <li><strong>KPI 調整</strong>：如何衡量 AI 導入成效</li>
+                    <li><strong>員工影響管理</strong>：如何帶領團隊轉型</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- P13：商業模式比較 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">商業模式</span>
+            <h2 class="section-title">兩種模式的商業價值比較</h2>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>比較項目</th>
+                    <th>🛠 工具教學課</th>
+                    <th>🎯 AI 導入戰略顧問</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>定價範圍</strong></td>
+                    <td>$2,000–$5,000 / 場</td>
+                    <td>$80,000–$200,000 / 案</td>
+                </tr>
+                <tr>
+                    <td><strong>交易模式</strong></td>
+                    <td>單場交易，易被替代</td>
+                    <td>持續合作，高黏著度</td>
+                </tr>
+                <tr>
+                    <td><strong>顧問延伸</strong></td>
+                    <td>幾乎無法延伸</td>
+                    <td>可延伸 $300,000–$1,000,000</td>
+                </tr>
+                <tr>
+                    <td><strong>競爭壁壘</strong></td>
+                    <td>低，同質化嚴重</td>
+                    <td>高，方法論 IP 難以複製</td>
+                </tr>
+                <tr>
+                    <td><strong>品牌定位</strong></td>
+                    <td>工具培訓商</td>
+                    <td>AI 轉型戰略夥伴</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="key-point">導入戰略產品線，才有機會形成長期顧問關係與高毛利成長。</div>
+    </div>
+
+    <!-- P14：試辦計畫 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">行動計畫</span>
+            <h2 class="section-title">低風險試辦：第一步怎麼走</h2>
+        </div>
+        <div class="question-box">
+            <div class="question-icon">💭</div>
+            <div class="question-text">「道理都懂，但第一步怎麼踏出去？」</div>
+        </div>
+        <div class="card card-emphasis" style="margin-bottom: 20px;">
+            <div class="card-title">🚀 試辦活動：企業 AI 導入 90 天決策藍圖 閉門分享會</div>
+            <div class="two-column" style="margin-top: 12px;">
+                <div>
+                    <h4>規模設計</h4>
+                    <ul class="bullet-list" style="margin-top: 8px;">
+                        <li>邀請 10–15 位企業主管</li>
+                        <li>2–3 小時濃縮版工作坊</li>
+                        <li>限定產業別聚焦討論</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>目標</h4>
+                    <ul class="bullet-list" style="margin-top: 8px;">
+                        <li>驗證市場需求與定價接受度</li>
+                        <li>收集真實回饋優化課程內容</li>
+                        <li>產生第一批標竿客戶案例</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <h3>三個月啟動里程碑：</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h4>第 1 個月｜準備</h4>
+                <p>確認方法論、設計課綱、邀請目標客戶名單</p>
+            </div>
+            <div class="timeline-item">
+                <h4>第 2 個月｜試辦</h4>
+                <p>舉辦第一場閉門分享，收集回饋，調整內容</p>
+            </div>
+            <div class="timeline-item" style="border-left-color: var(--success);">
+                <h4 style="color: var(--success);">第 3 個月｜評估與延伸</h4>
+                <p>評估延伸顧問機會，決定正式產品化路徑</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- P15：結論 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">結論</span>
+            <h2 class="section-title">戰略方向：往高端走，現在就是時機</h2>
+        </div>
+        <div class="two-column">
+            <div>
+                <h3>工具教學是短期需求</h3>
+                <div class="card card-warning">
+                    <ul class="bullet-list">
+                        <li>市場已趨飽和</li>
+                        <li>價格持續下探</li>
+                        <li>難以形成競爭護城河</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <h3>導入戰略是長期價值</h3>
+                <div class="card card-success">
+                    <ul class="bullet-list">
+                        <li>市場仍是藍海</li>
+                        <li>高單價、高黏著度</li>
+                        <li>建立專屬方法論 IP</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <h3>如果公司希望做到：</h3>
+        <div class="three-column">
+            <div class="card card-emphasis">
+                <div class="card-title">🏆 建立高端定位</div>
+                <p>成為企業 AI 轉型首選戰略夥伴</p>
+            </div>
+            <div class="card card-emphasis">
+                <div class="card-title">💰 提升客單價</div>
+                <p>從萬元課程躍升為百萬顧問合作</p>
+            </div>
+            <div class="card card-emphasis">
+                <div class="card-title">🔄 延伸顧問服務</div>
+                <p>從培訓到執行，形成完整服務飛輪</p>
+            </div>
+        </div>
+        <div class="key-point">
+            現在發展 AI 導入戰略產品線，就是最好的時機。<br>
+            <span style="font-size:14px; opacity:0.85; font-weight:400;">市場窗口正在開啟，先布局者建立的壁壘，三年內難以撼動。</span>
+        </div>
+    </div>
+
+</div><!-- /.container -->
+
+<!-- ── CTA ── -->
+<div class="cta-section">
+    <div class="cta-inner">
+        <p class="cta-eyebrow">準備好了嗎？</p>
+        <h2 class="cta-title">讓我們一起<br>建立企業 AI 導入戰略</h2>
+        <p class="cta-desc">從產品線規劃到方法論設計，<br>TPIsoftware 陪您走過每一步</p>
+        <div class="cta-buttons">
+            <a href="https://www.tpisoftware.com/contact" target="_blank" class="btn-cta-primary">立即諮詢</a>
+            <a href="https://www.tpisoftware.com" target="_blank" class="btn-cta-secondary">了解更多服務</a>
+        </div>
+    </div>
+</div>
+
+<!-- ── Footer ── -->
+<footer>
+    <div class="footer-inner">
+        <div>
+            <div class="footer-brand-name">TPIsoftware</div>
+            <p class="footer-tagline">Your AI Partner for Mission-Critical Success</p>
+            <p class="footer-desc">企業 AI 轉型最佳夥伴</p>
+        </div>
+        <div>
+            <p class="footer-col-title">服務項目</p>
+            <div class="footer-links">
+                <a href="https://www.tpisoftware.com" target="_blank" class="footer-link">AI 導入戰略顧問</a>
+                <a href="https://www.tpisoftware.com" target="_blank" class="footer-link">企業 AI 教育訓練</a>
+                <a href="https://www.tpisoftware.com" target="_blank" class="footer-link">組織轉型規劃</a>
+                <a href="https://www.tpisoftware.com" target="_blank" class="footer-link">ChatGPT Enterprise 導入</a>
+            </div>
+        </div>
+        <div>
+            <p class="footer-col-title">聯絡我們</p>
+            <div class="footer-links">
+                <a href="https://www.tpisoftware.com/contact" target="_blank" class="footer-link">業務諮詢</a>
+                <a href="https://www.tpisoftware.com" target="_blank" class="footer-link">官方網站</a>
+                <a href="https://www.tpisoftware.com" target="_blank" class="footer-link">關於昕力資訊</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 TPIsoftware 昕力資訊股份有限公司. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+(function () {
+    var isEn = false;
+
+    function applyLang(en) {
+        var secs    = document.querySelectorAll('.section');
+        var tags    = document.querySelectorAll('.section-tag');
+        var titles  = document.querySelectorAll('.section-title');
+        var qtexts  = document.querySelectorAll('.question-text');
+        var badges  = document.querySelectorAll('.trust-badge');
+        var kpoints = document.querySelectorAll('.key-point');
+
+        /* Logo */
+        document.getElementById('logo-zh').style.display = en ? 'none' : '';
+        document.getElementById('logo-en').style.display = en ? ''     : 'none';
+
+        /* Page meta */
+        document.title = en
+            ? 'Enterprise AI Curriculum Strategy | TPIsoftware'
+            : '企業 AI 課程產品線戰略規劃｜TPIsoftware';
+        document.documentElement.lang = en ? 'en' : 'zh-TW';
+
+        /* Hero */
+        document.querySelector('.hero-badge').innerHTML =
+            '<span class="hero-badge-dot"></span>' +
+            (en ? 'TPIsoftware × Enterprise AI Transformation' : 'TPIsoftware × 企業 AI 轉型');
+        document.querySelector('.hero-title').innerHTML = en
+            ? 'Enterprise AI Curriculum<br>Product Line Strategy'
+            : '企業 AI 課程<br>產品線戰略規劃';
+
+        var badgeTexts = en
+            ? ['10 Years of Transformation', 'AI Adoption Strategy', 'Org Change Consulting']
+            : ['10 年轉型實務', 'AI 導入戰略', '組織轉型顧問'];
+        badges.forEach(function (b, i) { b.textContent = badgeTexts[i]; });
+
+        /* Nav */
+        document.querySelector('.nav-cta').textContent = en ? 'Contact Us' : '聯絡我們';
+
+        /* Section tags */
+        var tagTexts = en
+            ? ['Market Overview','Market Analysis','Economics','Enterprise Pain Points',
+               'Market Inflection','Competitive Edge','Product Strategy','Core Product',
+               'Methodology','Adoption Framework','Assessment Tool','Product Line 2',
+               'Business Model','Action Plan','Conclusion']
+            : ['市場現況','市場分析','商業特性','企業痛點','市場趨勢',
+               '競爭優勢','產品戰略','核心產品','方法論','導入框架',
+               '評估工具','產品線 2','商業模式','行動計畫','結論'];
+        tags.forEach(function (t, i) { t.textContent = tagTexts[i]; });
+
+        /* Section titles */
+        var titleTexts = en
+            ? ['The AI Training Market is Exploding — But in the Wrong Direction',
+               'Three-Tier Market: Red Ocean vs. Blue Ocean',
+               'The Commercial Limitations of Tool-Based Courses',
+               'What Enterprise Leaders Actually Worry About',
+               'The Market is About to Enter Phase Two',
+               'Why Us',
+               'The Dual-Track Product Line Strategy',
+               'Core Product 1: The 90-Day AI Adoption Blueprint for Executives',
+               'The Three-Layer AI Transformation Model (SGO)',
+               'The Enterprise AI Adoption Five-Stage Framework',
+               'The AI Impact Assessment Matrix',
+               'The Departmental Leadership Practical Series',
+               'Comparing the Two Business Models',
+               'Low-Risk Pilot: How to Take the First Step',
+               'Strategic Direction: Move Upmarket — Now Is the Time']
+            : ['AI 課程爆炸成長，但方向錯了',
+               '市場供給分層：紅海 vs 藍海',
+               '工具課的商業侷限',
+               '企業高層真正在意的不是工具',
+               '市場即將進入第二階段',
+               '為什麼是我們',
+               '雙軌產品線戰略',
+               '核心產品 1：總經理 AI 導入 90 天決策藍圖',
+               'AI 組織轉型 3 層模型（SGO）',
+               '企業 AI 導入 5 階段框架',
+               'AI 影響評估矩陣',
+               '部門主管實務系列',
+               '兩種模式的商業價值比較',
+               '低風險試辦：第一步怎麼走',
+               '戰略方向：往高端走，現在就是時機'];
+        titles.forEach(function (t, i) { t.textContent = titleTexts[i]; });
+
+        /* Question texts */
+        var qTexts = en
+            ? ['"The AI training market is flooded — how do we position ourselves?"',
+               '"Which tier should we compete in?"',
+               '"Tool courses seem safe — but what\'s the real business case?"',
+               '"What keeps C-level executives up at night?"',
+               '"Where are we in the market cycle right now?"',
+               '"With so many consultants out there, what\'s our difference?"',
+               '"Should we abandon tool courses or keep running them?"',
+               '"Executives don\'t need more tools. They need a decision framework."',
+               '"Where should enterprise AI transformation begin?"',
+               '"What\'s the right sequence for AI adoption?"',
+               '"What should AI do — and what should it never touch?"',
+               '"Different departments need very different things."',
+               '"Which model actually builds long-term business value?"',
+               '"The logic is clear — but what\'s the very first move?"']
+            : ['「市場上 AI 課這麼多，我們怎麼定位？」',
+               '「我們應該往哪個層次走？」',
+               '「要繼續做工具課，還是改方向？」',
+               '「企業 C-Level 的焦慮是什麼？」',
+               '「我們現在站在哪裡？」',
+               '「市場上那麼多顧問，我們的差異在哪？」',
+               '「要放棄工具課，還是繼續做？」',
+               '「高層要的不是工具，是決策框架。」',
+               '「企業 AI 轉型應該從哪裡切入？」',
+               '「導入 AI 應該按什麼步驟走？」',
+               '「AI 什麼事可以做？什麼事不能做？」',
+               '「不同部門主管需要的，差異很大。」',
+               '「兩種路線哪個更有商業價值？」',
+               '「道理都懂，但第一步怎麼踏出去？」'];
+        qtexts.forEach(function (q, i) { q.textContent = qTexts[i]; });
+
+        /* Key points */
+        var kpTexts = en
+            ? ["The market doesn't lack AI courses — it's drowning in tool tutorials.",
+               'Competing at the bottom tier means competing on price. There is no other way to win.',
+               'Tool courses are viable, but they cannot form a strategic competitive advantage.',
+               'Enterprises already know how to use AI. What they don\'t know is how to adopt it right.',
+               'We are at the inflection point. Those who position now will dominate the next three years.',
+               'We are not AI instructors. We are transformation practitioners.',
+               'The goal isn\'t to abandon tool courses — it\'s to add a high-value tier above them.',
+               '先定方向，再定邊界，最後改組織。順序錯了，導入必敗。',
+               'AI adoption is not a training program. It is a decision-engineering and institution-building exercise.',
+               "AI shouldn't be fully unleashed — it needs boundaries. Knowing what NOT to do matters as much as knowing what to do.",
+               'Upmarket is the only defensible position. Now is the window.',
+               '導入戰略產品線，才有機會形成長期顧問關係與高毛利成長。']
+            : ['現在市場上不是缺 AI 課，而是過剩 AI 工具課。',
+               '市場競爭集中在最底層。進入同一層，只能打價格戰。',
+               '工具課可以做，但很難形成公司的長期戰略優勢。',
+               '企業已經知道要用 AI，但不知道怎麼「導對」。',
+               '我們現在站在第一階段到第二階段的轉折點。先布局者，贏得全局。',
+               '我們不是 AI 講師，我們是轉型實務者。',
+               '不是放棄工具課，而是增加高價值層級，形成完整產品矩陣。',
+               '先定方向，再定邊界，最後改組織。順序錯了，導入必敗。',
+               '導入不是上課，是決策工程與制度建設。',
+               'AI 不該全開，而是要有邊界。知道不做什麼，跟知道做什麼一樣重要。',
+               '現在發展 AI 導入戰略產品線，就是最好的時機。\n市場窗口正在開啟，先布局者建立的壁壘，三年內難以撼動。',
+               '導入戰略產品線，才有機會形成長期顧問關係與高毛利成長。'];
+
+        /* Map key-points by text to avoid ordering issues */
+        var kpZhMap = {
+            '現在市場上不是缺 AI 課，而是過剩 AI 工具課。': 0,
+            '市場競爭集中在最底層。進入同一層，只能打價格戰。': 1,
+            '工具課可以做，但很難形成公司的長期戰略優勢。': 2,
+            '企業已經知道要用 AI，但不知道怎麼「導對」。': 3,
+            '我們現在站在第一階段到第二階段的轉折點。先布局者，贏得全局。': 4,
+            '我們不是 AI 講師，我們是轉型實務者。': 5,
+            '不是放棄工具課，而是增加高價值層級，形成完整產品矩陣。': 6,
+            '先定方向，再定邊界，最後改組織。順序錯了，導入必敗。': 7,
+            '導入不是上課，是決策工程與制度建設。': 8,
+            'AI 不該全開，而是要有邊界。知道不做什麼，跟知道做什麼一樣重要。': 9,
+        };
+        kpoints.forEach(function (k) {
+            var txt = k.textContent.trim();
+            for (var zhKey in kpZhMap) {
+                if (txt.indexOf(zhKey.substring(0,8)) !== -1 || txt.indexOf(kpTexts[kpZhMap[zhKey]].substring(0,8)) !== -1) {
+                    k.innerHTML = en ? kpTexts[kpZhMap[zhKey]] : zhKey;
+                    return;
+                }
+            }
+        });
+
+        /* CTA */
+        var ctaEyebrow = document.querySelector('.cta-eyebrow');
+        if (ctaEyebrow) ctaEyebrow.textContent = en ? 'Ready to Take the Next Step?' : '準備好了嗎？';
+        var ctaTitle = document.querySelector('.cta-title');
+        if (ctaTitle) ctaTitle.innerHTML = en
+            ? 'Let\'s Build Your<br>Enterprise AI Adoption Strategy'
+            : '讓我們一起<br>建立企業 AI 導入戰略';
+        var ctaDesc = document.querySelector('.cta-desc');
+        if (ctaDesc) ctaDesc.innerHTML = en
+            ? 'From product line design to methodology development,<br>TPIsoftware guides you every step of the way.'
+            : '從產品線規劃到方法論設計，<br>TPIsoftware 陪您走過每一步';
+        var ctaBtns = document.querySelectorAll('.cta-buttons a');
+        if (ctaBtns[0]) ctaBtns[0].textContent = en ? 'Schedule a Consultation' : '立即諮詢';
+        if (ctaBtns[1]) ctaBtns[1].textContent = en ? 'Learn More' : '了解更多服務';
+
+        /* Footer */
+        var ftDesc = document.querySelector('.footer-desc');
+        if (ftDesc) ftDesc.textContent = en
+            ? 'Your Trusted Partner for Enterprise AI Transformation'
+            : '企業 AI 轉型最佳夥伴';
+        var ftColTitles    = document.querySelectorAll('.footer-col-title');
+        var ftColTitleTxts = en ? ['Our Services', 'Contact Us'] : ['服務項目', '聯絡我們'];
+        ftColTitles.forEach(function (t, i) { t.textContent = ftColTitleTxts[i]; });
+        var ftLinks    = document.querySelectorAll('.footer-link');
+        var ftLinkTxts = en
+            ? ['AI Adoption Strategy Consulting', 'Enterprise AI Training', 'Organizational Transformation', 'ChatGPT Enterprise Onboarding', 'Business Inquiry', 'Official Website', 'About TPIsoftware']
+            : ['AI 導入戰略顧問', '企業 AI 教育訓練', '組織轉型規劃', 'ChatGPT Enterprise 導入', '業務諮詢', '官方網站', '關於昕力資訊'];
+        ftLinks.forEach(function (l, i) { l.textContent = ftLinkTxts[i]; });
+        var ftBottom = document.querySelector('.footer-bottom p');
+        if (ftBottom) ftBottom.textContent = en
+            ? '© 2026 TPIsoftware Corporation. All rights reserved.'
+            : '© 2026 TPIsoftware 昕力資訊股份有限公司. All rights reserved.';
+    }
+
+    window.toggleLang = function () {
+        isEn = !isEn;
+        applyLang(isEn);
+        document.querySelector('.lang-toggle').textContent = isEn ? '中文' : 'EN';
+    };
+}());
+</script>
+
+</body>
+</html>
