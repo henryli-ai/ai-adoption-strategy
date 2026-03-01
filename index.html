@@ -77,13 +77,7 @@
             background: var(--primary); transform: translateY(-1px);
             box-shadow: 0 4px 16px rgba(124,58,237,0.3);
         }
-        .lang-toggle {
-            background: transparent; border: 1.5px solid var(--primary-light);
-            color: var(--primary-light); padding: 7px 16px; border-radius: 20px;
-            font-size: 13px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;
-            transition: all 0.2s; font-family: inherit;
-        }
-        .lang-toggle:hover { background: var(--primary-light); color: white; }
+
 
         /* ── Hero ── */
         .hero {
@@ -373,10 +367,8 @@
 <header>
     <div class="logo-section">
         <img id="logo-zh" src="images/logo-zh.png" alt="昕力資訊" style="height:40px;">
-        <img id="logo-en" src="images/logo-en.png" alt="TPIsoftware" style="height:40px; display:none;">
     </div>
     <nav class="header-nav">
-        <button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language">EN</button>
         <a href="https://www.tpisoftware.com/contact" target="_blank" class="nav-cta">聯絡我們</a>
     </nav>
 </header>
@@ -1026,213 +1018,6 @@
         <p>© 2026 TPIsoftware 昕力資訊股份有限公司. All rights reserved.</p>
     </div>
 </footer>
-
-<script>
-(function () {
-    var isEn = false;
-
-    function applyLang(en) {
-        var secs    = document.querySelectorAll('.section');
-        var tags    = document.querySelectorAll('.section-tag');
-        var titles  = document.querySelectorAll('.section-title');
-        var qtexts  = document.querySelectorAll('.question-text');
-        var badges  = document.querySelectorAll('.trust-badge');
-        var kpoints = document.querySelectorAll('.key-point');
-
-        /* Logo */
-        document.getElementById('logo-zh').style.display = en ? 'none' : '';
-        document.getElementById('logo-en').style.display = en ? ''     : 'none';
-
-        /* Page meta */
-        document.title = en
-            ? 'Enterprise AI Curriculum Strategy | TPIsoftware'
-            : '企業 AI 課程產品線戰略規劃｜TPIsoftware';
-        document.documentElement.lang = en ? 'en' : 'zh-TW';
-
-        /* Hero */
-        document.querySelector('.hero-badge').innerHTML =
-            '<span class="hero-badge-dot"></span>' +
-            (en ? 'TPIsoftware × Enterprise AI Transformation' : 'TPIsoftware × 企業 AI 轉型');
-        document.querySelector('.hero-title').innerHTML = en
-            ? 'Enterprise AI Curriculum<br>Product Line Strategy'
-            : '企業 AI 課程<br>產品線戰略規劃';
-
-        var badgeTexts = en
-            ? ['10 Years of Transformation', 'AI Adoption Strategy', 'Org Change Consulting']
-            : ['10 年轉型實務', 'AI 導入戰略', '組織轉型顧問'];
-        badges.forEach(function (b, i) { b.textContent = badgeTexts[i]; });
-
-        /* Nav */
-        document.querySelector('.nav-cta').textContent = en ? 'Contact Us' : '聯絡我們';
-
-        /* Section tags */
-        var tagTexts = en
-            ? ['Market Overview','Market Analysis','Economics','Enterprise Pain Points',
-               'Market Inflection','Competitive Edge','Product Strategy','Core Product',
-               'Methodology','Adoption Framework','Assessment Tool','Product Line 2',
-               'Business Model','Action Plan','Conclusion']
-            : ['市場現況','市場分析','商業特性','企業痛點','市場趨勢',
-               '競爭優勢','產品戰略','核心產品','方法論','導入框架',
-               '評估工具','產品線 2','商業模式','行動計畫','結論'];
-        tags.forEach(function (t, i) { t.textContent = tagTexts[i]; });
-
-        /* Section titles */
-        var titleTexts = en
-            ? ['The AI Training Market is Exploding — But in the Wrong Direction',
-               'Three-Tier Market: Red Ocean vs. Blue Ocean',
-               'The Commercial Limitations of Tool-Based Courses',
-               'What Enterprise Leaders Actually Worry About',
-               'The Market is About to Enter Phase Two',
-               'Why Us',
-               'The Dual-Track Product Line Strategy',
-               'Core Product 1: The 90-Day AI Adoption Blueprint for Executives',
-               'The Three-Layer AI Transformation Model (SGO)',
-               'The Enterprise AI Adoption Five-Stage Framework',
-               'The AI Impact Assessment Matrix',
-               'The Departmental Leadership Practical Series',
-               'Comparing the Two Business Models',
-               'Low-Risk Pilot: How to Take the First Step',
-               'Strategic Direction: Move Upmarket — Now Is the Time']
-            : ['AI 課程爆炸成長，但方向錯了',
-               '市場供給分層：紅海 vs 藍海',
-               '工具課的商業侷限',
-               '企業高層真正在意的不是工具',
-               '市場即將進入第二階段',
-               '為什麼是我們',
-               '雙軌產品線戰略',
-               '核心產品 1：總經理 AI 導入 90 天決策藍圖',
-               'AI 組織轉型 3 層模型（SGO）',
-               '企業 AI 導入 5 階段框架',
-               'AI 影響評估矩陣',
-               '部門主管實務系列',
-               '兩種模式的商業價值比較',
-               '低風險試辦：第一步怎麼走',
-               '戰略方向：往高端走，現在就是時機'];
-        titles.forEach(function (t, i) { t.textContent = titleTexts[i]; });
-
-        /* Question texts */
-        var qTexts = en
-            ? ['"The AI training market is flooded — how do we position ourselves?"',
-               '"Which tier should we compete in?"',
-               '"Tool courses seem safe — but what\'s the real business case?"',
-               '"What keeps C-level executives up at night?"',
-               '"Where are we in the market cycle right now?"',
-               '"With so many consultants out there, what\'s our difference?"',
-               '"Should we abandon tool courses or keep running them?"',
-               '"Executives don\'t need more tools. They need a decision framework."',
-               '"Where should enterprise AI transformation begin?"',
-               '"What\'s the right sequence for AI adoption?"',
-               '"What should AI do — and what should it never touch?"',
-               '"Different departments need very different things."',
-               '"Which model actually builds long-term business value?"',
-               '"The logic is clear — but what\'s the very first move?"']
-            : ['「市場上 AI 課這麼多，我們怎麼定位？」',
-               '「我們應該往哪個層次走？」',
-               '「要繼續做工具課，還是改方向？」',
-               '「企業 C-Level 的焦慮是什麼？」',
-               '「我們現在站在哪裡？」',
-               '「市場上那麼多顧問，我們的差異在哪？」',
-               '「要放棄工具課，還是繼續做？」',
-               '「高層要的不是工具，是決策框架。」',
-               '「企業 AI 轉型應該從哪裡切入？」',
-               '「導入 AI 應該按什麼步驟走？」',
-               '「AI 什麼事可以做？什麼事不能做？」',
-               '「不同部門主管需要的，差異很大。」',
-               '「兩種路線哪個更有商業價值？」',
-               '「道理都懂，但第一步怎麼踏出去？」'];
-        qtexts.forEach(function (q, i) { q.textContent = qTexts[i]; });
-
-        /* Key points */
-        var kpTexts = en
-            ? ["The market doesn't lack AI courses — it's drowning in tool tutorials.",
-               'Competing at the bottom tier means competing on price. There is no other way to win.',
-               'Tool courses are viable, but they cannot form a strategic competitive advantage.',
-               'Enterprises already know how to use AI. What they don\'t know is how to adopt it right.',
-               'We are at the inflection point. Those who position now will dominate the next three years.',
-               'We are not AI instructors. We are transformation practitioners.',
-               'The goal isn\'t to abandon tool courses — it\'s to add a high-value tier above them.',
-               '先定方向，再定邊界，最後改組織。順序錯了，導入必敗。',
-               'AI adoption is not a training program. It is a decision-engineering and institution-building exercise.',
-               "AI shouldn't be fully unleashed — it needs boundaries. Knowing what NOT to do matters as much as knowing what to do.",
-               'Upmarket is the only defensible position. Now is the window.',
-               '導入戰略產品線，才有機會形成長期顧問關係與高毛利成長。']
-            : ['現在市場上不是缺 AI 課，而是過剩 AI 工具課。',
-               '市場競爭集中在最底層。進入同一層，只能打價格戰。',
-               '工具課可以做，但很難形成公司的長期戰略優勢。',
-               '企業已經知道要用 AI，但不知道怎麼「導對」。',
-               '我們現在站在第一階段到第二階段的轉折點。先布局者，贏得全局。',
-               '我們不是 AI 講師，我們是轉型實務者。',
-               '不是放棄工具課，而是增加高價值層級，形成完整產品矩陣。',
-               '先定方向，再定邊界，最後改組織。順序錯了，導入必敗。',
-               '導入不是上課，是決策工程與制度建設。',
-               'AI 不該全開，而是要有邊界。知道不做什麼，跟知道做什麼一樣重要。',
-               '現在發展 AI 導入戰略產品線，就是最好的時機。\n市場窗口正在開啟，先布局者建立的壁壘，三年內難以撼動。',
-               '導入戰略產品線，才有機會形成長期顧問關係與高毛利成長。'];
-
-        /* Map key-points by text to avoid ordering issues */
-        var kpZhMap = {
-            '現在市場上不是缺 AI 課，而是過剩 AI 工具課。': 0,
-            '市場競爭集中在最底層。進入同一層，只能打價格戰。': 1,
-            '工具課可以做，但很難形成公司的長期戰略優勢。': 2,
-            '企業已經知道要用 AI，但不知道怎麼「導對」。': 3,
-            '我們現在站在第一階段到第二階段的轉折點。先布局者，贏得全局。': 4,
-            '我們不是 AI 講師，我們是轉型實務者。': 5,
-            '不是放棄工具課，而是增加高價值層級，形成完整產品矩陣。': 6,
-            '先定方向，再定邊界，最後改組織。順序錯了，導入必敗。': 7,
-            '導入不是上課，是決策工程與制度建設。': 8,
-            'AI 不該全開，而是要有邊界。知道不做什麼，跟知道做什麼一樣重要。': 9,
-        };
-        kpoints.forEach(function (k) {
-            var txt = k.textContent.trim();
-            for (var zhKey in kpZhMap) {
-                if (txt.indexOf(zhKey.substring(0,8)) !== -1 || txt.indexOf(kpTexts[kpZhMap[zhKey]].substring(0,8)) !== -1) {
-                    k.innerHTML = en ? kpTexts[kpZhMap[zhKey]] : zhKey;
-                    return;
-                }
-            }
-        });
-
-        /* CTA */
-        var ctaEyebrow = document.querySelector('.cta-eyebrow');
-        if (ctaEyebrow) ctaEyebrow.textContent = en ? 'Ready to Take the Next Step?' : '準備好了嗎？';
-        var ctaTitle = document.querySelector('.cta-title');
-        if (ctaTitle) ctaTitle.innerHTML = en
-            ? 'Let\'s Build Your<br>Enterprise AI Adoption Strategy'
-            : '讓我們一起<br>建立企業 AI 導入戰略';
-        var ctaDesc = document.querySelector('.cta-desc');
-        if (ctaDesc) ctaDesc.innerHTML = en
-            ? 'From product line design to methodology development,<br>TPIsoftware guides you every step of the way.'
-            : '從產品線規劃到方法論設計，<br>TPIsoftware 陪您走過每一步';
-        var ctaBtns = document.querySelectorAll('.cta-buttons a');
-        if (ctaBtns[0]) ctaBtns[0].textContent = en ? 'Schedule a Consultation' : '立即諮詢';
-        if (ctaBtns[1]) ctaBtns[1].textContent = en ? 'Learn More' : '了解更多服務';
-
-        /* Footer */
-        var ftDesc = document.querySelector('.footer-desc');
-        if (ftDesc) ftDesc.textContent = en
-            ? 'Your Trusted Partner for Enterprise AI Transformation'
-            : '企業 AI 轉型最佳夥伴';
-        var ftColTitles    = document.querySelectorAll('.footer-col-title');
-        var ftColTitleTxts = en ? ['Our Services', 'Contact Us'] : ['服務項目', '聯絡我們'];
-        ftColTitles.forEach(function (t, i) { t.textContent = ftColTitleTxts[i]; });
-        var ftLinks    = document.querySelectorAll('.footer-link');
-        var ftLinkTxts = en
-            ? ['AI Adoption Strategy Consulting', 'Enterprise AI Training', 'Organizational Transformation', 'ChatGPT Enterprise Onboarding', 'Business Inquiry', 'Official Website', 'About TPIsoftware']
-            : ['AI 導入戰略顧問', '企業 AI 教育訓練', '組織轉型規劃', 'ChatGPT Enterprise 導入', '業務諮詢', '官方網站', '關於昕力資訊'];
-        ftLinks.forEach(function (l, i) { l.textContent = ftLinkTxts[i]; });
-        var ftBottom = document.querySelector('.footer-bottom p');
-        if (ftBottom) ftBottom.textContent = en
-            ? '© 2026 TPIsoftware Corporation. All rights reserved.'
-            : '© 2026 TPIsoftware 昕力資訊股份有限公司. All rights reserved.';
-    }
-
-    window.toggleLang = function () {
-        isEn = !isEn;
-        applyLang(isEn);
-        document.querySelector('.lang-toggle').textContent = isEn ? '中文' : 'EN';
-    };
-}());
-</script>
 
 </body>
 </html>
